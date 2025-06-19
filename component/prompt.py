@@ -60,4 +60,3 @@ if __name__ == "__main__":
     duration = 7  # days
     trip_plan = generate_trip_plan(destination, budget, duration)
     print(trip_plan)
-    print('AIzaSyAxn2DblMCOOv5qdiFHYQgdW_ICDYdIZ2E')
