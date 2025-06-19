@@ -33,7 +33,7 @@ def generate_trip_plan(destination: str, budget: int, duration: int) -> str:
         budget=budget,
         duration=duration
     )
-    print(chat_template)
+
     client = ChatGoogleGenerativeAI(
         model="gemini-1.5-flash",
         temperature=0.0, # Set temperature to 0 for deterministic output
