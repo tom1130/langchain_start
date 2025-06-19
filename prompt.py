@@ -33,7 +33,7 @@ def generate_trip_plan(destination: str, budget: int, duration: int) -> str:
         budget=budget,
         duration=duration
     )
-    
+    print(chat_template)
     client = ChatGoogleGenerativeAI(
         model="gemini-1.5-flash",
         temperature=0.0, # Set temperature to 0 for deterministic output
@@ -42,7 +42,7 @@ def generate_trip_plan(destination: str, budget: int, duration: int) -> str:
     )
     
     # Generate the trip plan using the Google Generative AI client
-    response = client(formatted_prompt)
+    response = client.invoke(formatted_prompt)
     return response.content
 
 if __name__ == "__main__":
@@ -60,3 +60,4 @@ if __name__ == "__main__":
     duration = 7  # days
     trip_plan = generate_trip_plan(destination, budget, duration)
     print(trip_plan)
+    print('AIzaSyAxn2DblMCOOv5qdiFHYQgdW_ICDYdIZ2E')

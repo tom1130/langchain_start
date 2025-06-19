@@ -1,1 +1,4 @@
 .env
+
+*.ipynb
+*.ipynbs_checkpoints
