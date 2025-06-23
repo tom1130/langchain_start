@@ -122,10 +122,11 @@ if __name__ == "__main__":
     prompt = "13차 수정헌법이 언제 비준되었나요?"
     response = generate_datetime_output(prompt)
     print(response)
+    print(type(response))
     
     prompt = "안토니오 가우디에 대해 알려주세요"
     response = generate_scientist_info(prompt)
-    print(response.name)
-    print(response.field)
-    print(response.discovery)
-    print(response)
+    # print(response.name)
+    # print(response.field)
+    # print(response.discovery)
+    # print(response)
