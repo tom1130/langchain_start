@@ -40,9 +40,6 @@ def summary_hacker_news(post_id: str) -> str:
     chat_prompt = ChatPromptTemplate.from_messages(
         [human_prompt]
     )
-    print(f'texts: {texts}')
-    print()
-    print()
     messages = chat_prompt.format_messages(text=texts)
     response = client.invoke(messages)
     
@@ -69,7 +66,6 @@ def answer_wikipedia(person_name: str, question: str) -> str:
     )
     documents = loader.load()
     context_text = documents[0].page_content if documents else ""
-    print(context_text)
     human_template = (
         "질문에 답변해주세요:\n\n{question}\n\n{context}"
     )
@@ -79,9 +75,8 @@ def answer_wikipedia(person_name: str, question: str) -> str:
         [human_prompt] 
     )
     chat = chat_prompt.format_prompt(question=question, context=context_text).to_messages()
-    print(f'chat: {chat}')
-    print()
-    answer = client(chat)
+    # print(f'chat: {chat}')
+    answer = client.invoke(chat)
     return answer
     
 
@@ -90,9 +85,9 @@ if __name__ == "__main__":
     load_dotenv()
     
     # Example usage
-    # post_id = "12345"  # Replace with a valid Hacker News post ID
-    # summary = summary_hacker_news(post_id)
-    # print(summary)
+    post_id = "12345"  # Replace with a valid Hacker News post ID
+    summary = summary_hacker_news(post_id)
+    print(summary)
     
     person_name = "Albert Einstein"  # Replace with a valid person's name
     question = "What is his contribution to physics?"
